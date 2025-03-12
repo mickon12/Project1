@@ -132,3 +132,51 @@ ggplot(NL, aes(x = Career.Opportunities)) +
   geom_vline(xintercept = median_value, linetype = "dotted", color = "green", size = 1) +  # Median line
   labs(title = "Career Opportunities in  NL",x = "Career Opportunities") +
   theme_minimal()
+mean_value <- mean(UK$Compensation.and.benefits, na.rm = TRUE)
+median_value <- median(UK$Compensation.and.benefits, na.rm = TRUE)
+ggplot(UK, aes(x = Compensation.and.benefits)) +
+  geom_density(fill = "lightblue", alpha = 0.5)  + 
+  geom_vline(xintercept = mean_value, linetype = "dashed", color = "red", size = 1) +  # Mean line
+  geom_vline(xintercept = median_value, linetype = "dotted", color = "green", size = 1) +  # Median line
+  labs(title = "Compensationv and Benefits in  UK",x = "Compensation and Benefits") +
+  theme_minimal()
+mean_value <- mean(Us$Compensation.and.benefits, na.rm = TRUE)
+median_value <- median(Us$Compensation.and.benefits, na.rm = TRUE)
+ggplot(Us, aes(x = Compensation.and.benefits)) +
+  geom_density(fill = "lightblue", alpha = 0.5)  + 
+  geom_vline(xintercept = mean_value, linetype = "dashed", color = "red", size = 1) +  # Mean line
+  geom_vline(xintercept = median_value, linetype = "dotted", color = "green", size = 1) +  # Median line
+  labs(title = "Compensationv and Benefits in  US",x = "Compensation and Benefits") +
+  theme_minimal()
+mean_value <- mean(NL$Compensation.and.benefits, na.rm = TRUE)
+median_value <- median(NL$Compensation.and.benefits, na.rm = TRUE)
+ggplot(NL, aes(x = Compensation.and.benefits)) +
+  geom_density(fill = "lightblue", alpha = 0.5)  + 
+  geom_vline(xintercept = mean_value, linetype = "dashed", color = "red", size = 1) +  # Mean line
+  geom_vline(xintercept = median_value, linetype = "dotted", color = "green", size = 1) +  # Median line
+  labs(title = "Compensationv and Benefits in  NL",x = "Compensation and Benefits") +
+  theme_minimal()
+mean_value <- mean(UK$Senior.Management, na.rm = TRUE)
+median_value <- median(UK$Senior.Management, na.rm = TRUE)
+ggplot(UK, aes(x = Senior.Management)) +
+  geom_density(fill = "lightblue", alpha = 0.5)  + 
+  geom_vline(xintercept = mean_value, linetype = "dashed", color = "red", size = 1) +  # Mean line
+  geom_vline(xintercept = median_value, linetype = "dotted", color = "green", size = 1) +  # Median line
+  labs(title = "Senior Management in  UK",x = "Senior.Management") +
+  theme_minimal()
+mean_value <- mean(Us$Senior.Management, na.rm = TRUE)
+median_value <- median(Us$Senior.Management, na.rm = TRUE)
+ggplot(Us, aes(x = Senior.Management)) +
+  geom_density(fill = "lightblue", alpha = 0.5)  + 
+  geom_vline(xintercept = mean_value, linetype = "dashed", color = "red", size = 1) +  # Mean line
+  geom_vline(xintercept = median_value, linetype = "dotted", color = "green", size = 1) +  # Median line
+  labs(title = "Senior Management in  US",x = "Senior.Management") +
+  theme_minimal()
+mean_value <- mean(NL$Senior.Management, na.rm = TRUE)
+median_value <- median(NL$Senior.Management, na.rm = TRUE)
+ggplot(NL, aes(x = Senior.Management)) +
+  geom_density(fill = "lightblue", alpha = 0.5)  + 
+  geom_vline(xintercept = mean_value, linetype = "dashed", color = "red", size = 1) +  # Mean line
+  geom_vline(xintercept = median_value, linetype = "dotted", color = "green", size = 1) +  # Median line
+  labs(title = "Senior Management in  NL",x = "Senior.Management") +
+  theme_minimal()
