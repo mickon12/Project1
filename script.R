@@ -16,6 +16,7 @@ mean_value <- mean(UK$Duration.of.employment, na.rm = TRUE)
 median_value <- median(UK$Duration.of.employment, na.rm = TRUE)
 NL_UK <- subset(database, Country  == "UK" | Country  == "NL")
 NL_US <- subset(database, Country  == "US" | Country  == "NL")
+US_UK <- subset(database, Country  == "UK" | Country  == "US")
 ggplot(UK, aes(x = Duration.of.employment)) +
   geom_density(fill = "lightblue", alpha = 0.5)  + 
   geom_vline(xintercept = mean_value, linetype = "dashed", color = "red", size = 1) +  # Mean line
@@ -182,8 +183,20 @@ ggplot(NL, aes(x = Senior.Management)) +
   geom_vline(xintercept = median_value, linetype = "dotted", color = "green", size = 1) +  # Median line
   labs(title = "Senior Management in  NL",x = "Senior.Management") +
   theme_minimal()
-wilcox.test(Duration.of.employment ~ Country, NL_UK)
-wilcox.test(`Work/Life.Balance` ~ Country, NL_UK)
-wilcox.test(Culture.and.values ~ Country, NL_UK)
-wilcox.test(Duration.of.employment ~ Country, NL_US)
-wilcox.test(Diversity.and.Inclusion ~ Country, NL_UK)
+str(database)
+results <- apply(NL_UK[, c(3:9)], 2, function(x) {# Perform Wilcoxon test for each variable 'x' grouped by 'Country'
+  test_result <- wilcox.test(x ~ NL_UK$Country)
+  return(test_result)  
+})
+print(results)
+results1 <- apply(NL_US[, c(3:9)], 2, function(x) {# Perform Wilcoxon test for each variable 'x' grouped by 'Country'
+  test_result <- wilcox.test(x ~ NL_US$Country)
+  return(test_result)  
+})
+print(results1)
+print(results)
+results2 <- apply(US_UK[, c(3:9)], 2, function(x) {# Perform Wilcoxon test for each variable 'x' grouped by 'Country'
+  test_result <- wilcox.test(x ~ US_UK$Country)
+  return(test_result)  
+})
+print(results2)
